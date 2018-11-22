@@ -48,21 +48,28 @@ void loop() {
       digitalWrite(heater_ledPin, LOW);
       digitalWrite(alarm_ledPin, LOW); }
    
-       else { (average >= temprefValue); 
+       if  (average >= temprefValue); {
        digitalWrite(heater_ledPin, HIGH);
        digitalWrite(alarm_ledPin, LOW);
     }
   } 
 
-  if((difference > twenty_thermistorValue) && (average > temprefValue) && (average < temprefValue)){
+  else {
+    if (average > temprefValue){
       digitalWrite(heater_ledPin, LOW);
       digitalWrite(alarm_ledPin, HIGH); 
        }
+
+     if (average < temprefValue) {
+       digitalWrite(heater_ledPin, LOW);
+      digitalWrite(alarm_ledPin, HIGH); 
+     }
 
   
 
 
 
+}
 }
   
   
