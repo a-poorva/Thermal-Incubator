@@ -24,17 +24,23 @@ void setup() {
 }
 
 void loop() {
-  thermistor1Value = analogRead(thermistor1Pin);
-  thermistor2Value = analogRead(thermistor2Pin);
-  temprefValue = analogRead(temprefPin);
+  thermistor1Value = analogRead(thermistor1Pin) * (5.0 / 1023.0);
+  thermistor2Value = analogRead(thermistor2Pin) * (5.0 / 1023.0);
+  temprefValue = analogRead(temprefPin) * (5.0 / 1023.0);
 
-
+  Serial.print(thermistor1Value);
+  Serial.print(thermistor2Value);
+  Serial.print(temprefValue);
+  
   twenty_thermistorValue = (0.2 * thermistor2Value);
 
   average = (thermistor1Value + thermistor2Value)/2;
 
   difference = abs(thermistor1Value - thermistor2Value);
 
+  Serial.print(twenty_thermistorValue);
+  Serial.print(average);
+  Serial.print(difference);
 
   
   if (difference <= twenty_thermistorValue) {
